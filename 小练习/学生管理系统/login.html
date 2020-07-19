@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+    <form action="#" id="login">
+        <h2>登录
+            <a href="register.html">注册</a>
+        </h2>
+        <div>
+            <label for="account">账号:</label>
+            <input type="text" id="account" name="account">
+        </div>
+        <div>
+            <label for="password">密码:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div>
+            <label for=""></label>
+            <input type="submit" class="btn" id="submit" value="提交">
+            <input type="reset" class="btn" value="重置">
+        </div>
+    </form>
+    <script src="./js/ajax.js"></script>
+    <script src="./js/cookie.js"></script>
+    <script>
+        var submit = document.getElementById('submit');
+        var form = document.getElementById('login');
+        setCookie('username', '', -1)
+        submit.onclick = function(e){
+            e.preventDefault();
+            var account = form.account.value;
+            var password = form.password.value;
+            if(account && password){
+                var data = 'appkey=ddmh123_1590643639612&account=' + account + '&password=' + password;
+                myAjax('POST','http://open.duyiedu.com/api/student/stuLogin',data,function (event){
+                    if(event.status == 'success'){
+                        location.href = './index.html';
+                        setCookie('username', account);
+                    }else{
+                        alert(e.msg);
+                    }
+                },true)
+            }
+        }
+    </script>
+</body>
+</html>

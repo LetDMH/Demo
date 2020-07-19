@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <form action="#" id="register">
+        <h2>注册
+            <a href="login.html">登录</a>
+        </h2>
+        <div>
+            <label for="username">用户名:</label>
+            <input type="text" name="username" id="username">
+        </div>
+        <div>
+            <label for="account">账号:</label>
+            <input type="text" name="account" id="account">
+        </div>
+        <div>
+            <label for="password">密码:</label>
+            <input type="text" name="password" id="password">
+        </div>
+        <div>
+            <label for="repassword">确认密码:</label>
+            <input type="text" name="repassword" id="repassword">
+        </div>
+        <div>
+            <label for=""></label>
+            <input type="submit" class="btn" id="submit" value="提交">
+            <input type="reset" class="btn" value="重置">
+        </div>
+    </form>
+    <script src="./js/ajax.js"></script>
+    <script>
+        var submitBtn = document.getElementById('submit');
+        submitBtn.onclick = function (e) {
+            e.preventDefault();
+            var form = document.getElementById('register');
+            var account = form.account.value;
+            var username = form.username.value;
+            var password = form.password.value;
+            var rePassword = form.rePassword.value;
+            if (account && username && password && rePassword) {
+                if (password == rePassword) {
+                    var data = 'appkey=ddmh123_1590643639612&account=' + account + '&password=' + password + '&rePassword=' + rePassword + '&username=' + username;
+                    ajax('POST', 'http://open.duyiedu.com/api/student/stuRegister', data, function (result) {
+                    if (result.status == 'success') {
+                        alert('注册成功');
+                        location.href = './login.html'
+                    } else {
+                        alert(result.msg);
+                    }
+                }, true);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

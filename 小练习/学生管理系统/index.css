@@ -1,0 +1,170 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+body {
+  font-size: 14px;
+}
+.header {
+  height: 70px;
+  background-color: #354457;
+  line-height: 70px;
+  width: 100%;
+  color: #b3bcc5;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+.header .logo {
+  padding-left: 20px;
+  font-size: 14px;
+}
+.header .logo img {
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
+.header .user {
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+.header .user:hover {
+  background-color: #fff;
+  color: #354457;
+}
+.header .user ul li {
+  padding: 0 40px;
+}
+.header .user .quit {
+  display: none;
+}
+.header .user:hover .quit {
+  display: block;
+}
+.header .user .quit:hover {
+  background-color: #ddd;
+}
+.menu {
+  width: 200px;
+  height: calc(100% - 70px);
+  background-color: #4d5e70;
+  position: fixed;
+  top: 70px;
+  line-height: 40px;
+  color: #b3bcc5;
+}
+.menu dl dt {
+  padding-left: 8px;
+  font-weight: bold;
+}
+.menu dl dd {
+  padding-left: 40px;
+  cursor: pointer;
+}
+.menu dl dd:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #354457;
+}
+.active {
+  background-color: #ddd;
+  color: #354457;
+}
+.content {
+  margin-top: 70px;
+  margin-left: 200px;
+  position: relative;
+  background-color: #eee;
+}
+#student-list {
+  width: 100%;
+  /* display: none; */
+}
+.content table {
+  width: 100%;
+  line-height: 30px;
+  text-align: center;
+}
+.content thead {
+  background-color: #e3e8ee;
+  color: #646987;
+}
+.content tbody {
+  background-color: #fff;
+}
+.content table button {
+  border: none;
+  font-size: 14px;
+  color: #fff;
+  padding: 3px 10px;
+  cursor: pointer;
+  outline: none;
+}
+.content .edit {
+  background-color: #5cb85c;
+}
+.content .delete {
+  background-color: #d9534f;
+}
+#student-add {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  display: none;
+}
+form div {
+  margin: 10px 0;
+}
+form {
+  width: 400px;
+  margin: 50px auto;
+  font-size: 16px;
+}
+label:not(.sex) {
+  width: 100px;
+  display: inline-block;
+  text-align: right;
+  margin-right: 10px;
+}
+.btn {
+  padding: 5px 25px;
+}
+.wrapper{
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+.wrapper .edit-form{
+  width: 500px;
+  height: 400px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background-color: #fff;
+}
+.wrapper .edit-form .form-content{
+  margin: 50px auto;
+  width: 400px;
+}
+.turn-page{
+  text-align: center;
+}
+.turn-page div{
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  background-color: aliceblue;
+}
