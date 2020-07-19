@@ -1,0 +1,1 @@
+!function(n){function t(n){this.index=0,this.len=n}t.prototype={pre:function(){return this.jugIndex(-1)},next:function(){return this.jugIndex(1)},jugIndex:function(n){return this.index=(this.index+n+this.len)%this.len,this.index}},n.controlIndex=t}(window.player||(window.player={}));
