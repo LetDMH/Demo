@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./jquery.js"></script>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="logo">
+            <img src="https://www.baidu.com/img/bd_logo1.png?where=super" title="点击一下，了解更多">
+        </div>
+        <div class="search-box">
+            <span class="search-area">
+                <input type="text" v-model="inputValue" 
+                @focus="()=>showList=true" @blur="()=>showList=false">
+                <span class="icon icon-paizhao"></span>
+            </span>
+            <span class="search-btn">百度一下</span>
+        </div>
+        <ul class="search-list"
+        v-show="showList&&dataList.length">
+            <li
+            v-for="data in dataList"
+            :key="data">{{ data }}</li>
+        </ul>
+    </div>
+    <script>
+        const vm = new Vue({
+            el:"#app",
+            data:{
+                inputValue:'',
+                dataList:[],
+                showList:false
+            },
+            methods:{
+                getCb(res){
+                    this.dataList = res.s
+                }
+            },
+            watch:{
+                inputValue(){
+                    if(this.inputValue == ""){
+                        this.showList = false
+                    }else{
+                        this.showList = true
+                    }
+                    $.ajax({
+                        url:" https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su",
+                        dataType:"jsonp",
+                        data:{
+                            wd:vm.inputValue,
+                            cb:"vm.getCb"
+                        }
+                    })
+                },
+                
+            }
+        })
+    </script>
+</body>
+</html>
